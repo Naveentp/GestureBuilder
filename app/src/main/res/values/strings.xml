@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">GestureBuilder</string>
+    <string name="app_name">Gesture Builder</string>
     <string name="action_settings">Settings</string>
 
     <string name="test">%1$s reps %2$s</string>
+    <string name="no_gesture_found">Gesture not found. You can add more gestures by clicking on Plus button.</string>
+    <string name="draw_gesture_here">Draw your gesture here..</string>
 </resources>
