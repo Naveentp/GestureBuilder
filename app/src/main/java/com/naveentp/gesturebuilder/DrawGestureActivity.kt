@@ -37,6 +37,7 @@ class DrawGestureActivity : AppCompatActivity() {
             } else {
                 Snackbar.make(fab, getString(R.string.no_gesture_found), BaseTransientBottomBar.LENGTH_SHORT).show()
             }
+            tvNoGestureMsg.visibility = View.VISIBLE
         }
 
         gestureOverlayView.addOnGestureListener(object : GestureOverlayView.OnGestureListener {
