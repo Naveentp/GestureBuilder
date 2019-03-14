@@ -1,4 +1,4 @@
-package com.naveentp.gesturebuilder
+package com.naveentp.gesturebuilder.ui.list
 
 import android.gesture.Gesture
 

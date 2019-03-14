@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:showIn="@layout/activity_draw_gesture"
-    tools:context=".draw.DrawGestureActivity">
+    tools:context=".ui.draw.DrawGestureActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

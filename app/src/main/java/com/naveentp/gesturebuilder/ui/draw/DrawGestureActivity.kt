@@ -1,4 +1,4 @@
-package com.naveentp.gesturebuilder.draw
+package com.naveentp.gesturebuilder.ui.draw
 
 import android.Manifest
 import android.content.Intent
@@ -17,8 +17,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
-import com.naveentp.gesturebuilder.GestureListActivity
+import com.naveentp.gesturebuilder.ui.list.GestureListActivity
 import com.naveentp.gesturebuilder.R
+import com.naveentp.gesturebuilder.util.Utils
 import kotlinx.android.synthetic.main.activity_draw_gesture.*
 import kotlinx.android.synthetic.main.content_main.*
 import java.io.File
@@ -55,9 +56,13 @@ class DrawGestureActivity : AppCompatActivity() {
         if (!gestureFile.exists()) {
             gestureFile.createNewFile()
         }
-        return GestureLibraries.fromFile(gestureFile)
+        return GestureLibraries.fromFile(Utils.getGestureFile())
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadGesturesWithRuntimePermission()
+    }
 
     private fun loadGestures() {
         gestureLibrary = getGestureInstance()
@@ -66,7 +71,10 @@ class DrawGestureActivity : AppCompatActivity() {
         gestureOverlayView.addOnGesturePerformedListener { _, gesture ->
             val predictions: ArrayList<Prediction> = gestureLibrary.recognize(gesture)
             if (predictions.size > 0 && predictions[0].score > 1.0) {
-                Snackbar.make(fab, "${predictions[0].score}", BaseTransientBottomBar.LENGTH_SHORT).show()
+                Snackbar.make(fab,
+                    "Name: ${predictions[0].name}, Score: ${predictions[0].score}",
+                    BaseTransientBottomBar.LENGTH_SHORT
+                ).show()
             } else {
                 Snackbar.make(fab, getString(R.string.no_gesture_found), BaseTransientBottomBar.LENGTH_SHORT).show()
             }
@@ -111,7 +119,7 @@ class DrawGestureActivity : AppCompatActivity() {
                         MY_PERMISSIONS_REQUEST_EXTERNAL_STORAGE
                     )
                 }
-            }else{
+            } else {
                 loadGestures()
             }
         } else {

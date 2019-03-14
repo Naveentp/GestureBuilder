@@ -7,4 +7,14 @@
     <string name="draw_gesture_here">Draw your gesture here..</string>
     <string name="add">Add</string>
     <string name="gestures_list">Gestures list</string>
+    <string name="delete_gesture">Do you want to delete the gesture?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="gesture_name">Gesture Name</string>
+    <string name="create_new_gesture">Create New Gesture</string>
+    <string name="save">Save</string>
+    <string name="gesture_name_required">Gesture Name required</string>
+    <string name="add_some_gesture">Add Some Gesture</string>
+    <string name="not_saved">Not saved</string>
+    <string name="saved">Gesture Saved</string>
 </resources>
