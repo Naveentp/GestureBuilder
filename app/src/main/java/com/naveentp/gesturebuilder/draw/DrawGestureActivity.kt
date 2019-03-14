@@ -1,4 +1,4 @@
-package com.naveentp.gesturebuilder
+package com.naveentp.gesturebuilder.draw
 
 import android.Manifest
 import android.content.Intent
@@ -17,6 +17,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
+import com.naveentp.gesturebuilder.GestureListActivity
+import com.naveentp.gesturebuilder.R
 import kotlinx.android.synthetic.main.activity_draw_gesture.*
 import kotlinx.android.synthetic.main.content_main.*
 import java.io.File
@@ -109,6 +111,8 @@ class DrawGestureActivity : AppCompatActivity() {
                         MY_PERMISSIONS_REQUEST_EXTERNAL_STORAGE
                     )
                 }
+            }else{
+                loadGestures()
             }
         } else {
             loadGestures()
